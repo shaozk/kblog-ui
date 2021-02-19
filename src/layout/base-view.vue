@@ -3,18 +3,8 @@
     <el-container>
       <el-header>顶部内容</el-header>
       <el-container>
-        <el-aside width="200px">
-          <div class="nav">
-            <router-link to="/index">首页</router-link>
-            <br>
-            <router-link to="/content/post-article">文章发表</router-link>
-            <br>
-            <router-link to="/content/manage-article">文章管理</router-link>
-            <br>
-            <router-link to="/content/manage-comment">评论管理</router-link>
-            <br>
-            <router-link to="/content/manage-image">图片管理</router-link>
-          </div>
+        <el-aside id="left-menu-list-box" width="200px">
+          <left-menu></left-menu>
         </el-aside>
         <el-container>
           <el-main>
@@ -31,7 +21,12 @@
 </template>
 
 <script>
+  export default {
+    mounted() {
+      // dongtaishezhi cebian candan gaodu
 
+    }
+  }
 </script>
 
 <style>
@@ -68,4 +63,5 @@ body > .el-container {
 .el-container:nth-child(7) .el-aside {
   line-height: 320px;
 }
+
 </style>
