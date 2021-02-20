@@ -4,7 +4,7 @@ import Vue from 'vue'
 Vue.use(VueRouter)
 
 // 登陆界面
-// const login = () => import("@/pages/login/login")
+const login = () => import("@/pages/login/login")
 
 // 内容部分
 const postArticle = () => import("@/pages/content/post-article")
@@ -170,6 +170,10 @@ export const routes = [
             }
 
         ]
+    },
+    {
+        path: '/login',
+        component: login
     }
 ]
 
