@@ -4,7 +4,7 @@ import Vue from 'vue'
 Vue.use(VueRouter)
 
 // 登陆界面
-const login = () => import("@/pages/login/login")
+// const login = () => import("@/pages/login/login")
 
 // 内容部分
 const postArticle = () => import("@/pages/content/post-article")
@@ -44,21 +44,21 @@ export const routes = [
             {
                 path: "/index",
                 name: '首页',
-                icon: 'el-icon-more-outline',
+                icon: 'el-icon-house',
                 hidden: false,
                 component: index
             },
             {
                 path: '/content',
                 name: '内容',
-                icon: 'el-icon-more-outline',
+                icon: 'el-icon-document',
                 hidden: false,
                 component: rightView,
                 children: [
                     {
                         path: 'post-article',
                         name: '发表文章',
-                        icon: 'el-icon-more-outline',
+                        icon: 'el-icon-reading',
                         hidden: false,
                         component: postArticle
                     },
@@ -72,14 +72,14 @@ export const routes = [
                     {
                         path: 'manage-comment',
                         name: '评论管理',
-                        icon: 'el-icon-chat-line-',
+                        icon: 'el-icon-chat-line-round',
                         hidden: false,
                         component: commentManage
                     },
                     {
                         path: 'manage-image',
                         name: '图片管理',
-                        icon: 'el-icon-more-outline',
+                        icon: 'el-icon-picture-outline',
                         hidden: false,
                         component: imageManage
                     }
@@ -95,28 +95,28 @@ export const routes = [
                     {
                         path: '/email',
                         name: '邮箱设置',
-                        icon: 'el-icon-more-outline',
+                        icon: 'el-icon-phone-outline',
                         hidden: false,
                         component: email
                     },
                     {
                         path: 'info',
                         name: '用户信息',
-                        icon: 'el-icon-more-outline',
+                        icon: 'el-icon-goods',
                         hidden: false,
                         component: info
                     },
                     {
                         path: 'list',
                         name: '用户列表',
-                        icon: 'el-icon-more-outline',
+                        icon: 'el-icon-orange',
                         hidden: false,
                         component: list
                     },
                     {
                         path: 'reset-password',
                         name: '密码重置',
-                        icon: 'el-icon-more-outline',
+                        icon: 'el-icon-unlock',
                         hidden: false,
                         component: resetPassword
                     }
@@ -125,21 +125,21 @@ export const routes = [
             {
                 path: '/operation',
                 name: '运营',
-                icon: 'el-icon-more-outline',
+                icon: 'el-icon-odometer',
                 hidden: false,
                 component: rightView,
                 children: [
                     {
                         path: 'category',
                         name: '分类管理',
-                        icon: 'el-icon-more-outline',
+                        icon: 'el-icon-pie-chart',
                         hidden: false,
                         component: categoryManage
                     },
                     {
                         path: 'loop',
                         name: '轮播图管理',
-                        icon: 'el-icon-more-outline',
+                        icon: 'el-icon-data-board',
                         hidden: false,
                         component: loopManage
                     }
@@ -167,13 +167,6 @@ export const routes = [
                         component: webSizeInfo
                     }
                 ]
-            },
-            {
-                path: '/login',
-                name: '登陆',
-                icon: 'el-icon-more-outline',
-                hidden: false,
-                component: login
             }
 
         ]

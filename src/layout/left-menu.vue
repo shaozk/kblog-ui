@@ -1,50 +1,37 @@
 <template>
   <div>
     <el-menu
-        default-active="1"
-        class="el-menu-vertical-demo">
-      <el-menu-item index="1">
-        <i class="el-icon-s-home"></i>
-        <span slot="title">首页</span>
-      </el-menu-item>
+        default-active="0"
+        unique-opened="true"
+        class="el-menu-vertical">
+      <!-- 遍历路由表内容 -->
+      <!-- 有两种：第一种没子菜单，另一种有子菜单 -->
+      <template v-for="(item,index) in menuList">
+        <router-link :to="item.path" v-if="!item.children&&!item.hidden" :key="index">
+          <el-menu-item :index="index">
+            <i :class="item.icon"></i>
+            <span slot="title">{{item.name}}</span>
+          </el-menu-item>
+        </router-link>
 
-      <el-submenu index="2">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>运营</span>
-        </template>
-        <el-menu-item index="2-1">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航一</span>
-        </el-menu-item>
-        <el-menu-item index="2-2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="2-3">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航三</span>
-        </el-menu-item>
-      </el-submenu>
 
-      <el-submenu index="3">
-        <template slot="title">
-          <i class="el-icon-user-solid"></i>
-          <span>用户</span>
-        </template>
-        <el-menu-item index="3-1">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航一</span>
-        </el-menu-item>
-        <el-menu-item index="3-2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="3-3">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航三</span>
-        </el-menu-item>
-      </el-submenu>
+        <el-submenu v-else :key="index" :index="index">
+          <template slot="title">
+            <i :class="item.icon"></i>
+            <span>{{item.name}}</span>
+          </template>
+          <router-link :to="item.path+'/'+subItem.path"
+            v-for="(subItem,subIndex) in item.children"
+            :key="subIndex">
+            <el-menu-item :index="index+'-'+subIndex" v-if="!subItem.hidden">
+              <i :class="subItem.icon"></i>
+              <span slot="title" v-text="subItem.name"></span>
+            </el-menu-item>
+          </router-link>
+
+        </el-submenu>
+
+      </template>
 
     </el-menu>
   </div>
@@ -62,12 +49,13 @@
     mounted() {
       let menuList = routes[0]
       this.menuList = menuList.children
-      console.log(this.menuList)
     }
   }
 
 </script>
 
-<style scoped>
-
+<style>
+  .el-menu-vertical a {
+    text-decoration: none;
+  }
 </style>
