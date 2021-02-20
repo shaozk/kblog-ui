@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="header-part">right content</div>
-    <div class="content">
+    <div class="content-title-box">right content</div>
+    <div class="content-container-box">
       <router-view></router-view>
     </div>
   </div>
@@ -13,6 +13,13 @@ name: "right-content"
 }
 </script>
 
-<style scoped>
+<style>
+   .content-title-box {
+     padding: 10px;
+   }
 
+   .content-container-box {
+     padding: 10px;
+     border-bottom: solid 1px #e6e6e6;
+   }
 </style>

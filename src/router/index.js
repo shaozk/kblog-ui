@@ -93,7 +93,7 @@ export const routes = [
                 component: rightView,
                 children: [
                     {
-                        path: '/email',
+                        path: 'email',
                         name: '邮箱设置',
                         icon: 'el-icon-phone-outline',
                         hidden: false,
